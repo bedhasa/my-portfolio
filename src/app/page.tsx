@@ -12,7 +12,7 @@ export default function Home() {
         {/* Profile Image */}
         <div className="group w-40 h-40 md:w-56 md:h-56 relative rounded-xl overflow-hidden shadow-lg border-4 border-orange-500 transition duration-300 hover:scale-105 hover:shadow-2xl">
           <Image
-            src="/images/profile.jpg"
+            src="/images/heroimg.png"
             alt="Bedasa Profile"
             fill
             className="object-cover group-hover:grayscale-0 group-hover:brightness-105 transition duration-300"

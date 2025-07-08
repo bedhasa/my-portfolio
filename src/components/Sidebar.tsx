@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa'
 
 export default function Sidebar() {
   return (
-    <div className="text-center space-y-6 text-gray-800 dark:text-white">
+    <div className="text-center fixed space-y-6 text-gray-800 dark:text-white">
       {/* Profile image */}
       <div className="mx-auto">
         <img
