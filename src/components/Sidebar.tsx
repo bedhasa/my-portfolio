@@ -28,6 +28,7 @@ export default function Sidebar() {
 
       {/* Contact me */}
       <div className="space-y-2 text-sm">
+        <h2>Contact me</h2>
         <p className="flex items-center justify-center gap-2">
           <FaEnvelope className="text-orange-500" /> bdhsane@gmail.com
         </p>

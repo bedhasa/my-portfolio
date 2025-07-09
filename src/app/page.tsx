@@ -1,5 +1,5 @@
 import Image from 'next/image'
- import { FaReact, FaPhp, FaHtml5, FaCss3Alt, FaJs, FaDatabase } from "react-icons/fa";
+ import { FaReact, FaPhp, FaHtml5, FaCss3Alt, FaJs } from "react-icons/fa";
 import { SiNextdotjs, SiTailwindcss, SiMysql } from "react-icons/si";
 import { FaGithub, FaLinkedin, FaEnvelope, FaTelegramPlane, FaFacebook } from 'react-icons/fa';
 
@@ -10,14 +10,16 @@ export default function Home() {
       {/* Profile Section */}
       <div className="flex flex-col md:flex-row items-center gap-10">
         {/* Profile Image */}
-        <div className="group w-40 h-40 md:w-56 md:h-56 relative rounded-xl overflow-hidden shadow-lg border-4 border-orange-500 transition duration-300 hover:scale-105 hover:shadow-2xl">
-          <Image
-            src="/images/heroimg.png"
-            alt="Bedasa Profile"
-            fill
-            className="object-cover group-hover:grayscale-0 group-hover:brightness-105 transition duration-300"
-          />
-        </div>
+       <div className="w-40 h-40 md:w-56 md:h-56 relative overflow-hidden rounded-xl transition-transform duration-300 hover:scale-105">
+  <Image
+    src="/images/heroimg.png"
+    alt="Bedasa Profile"
+    fill
+    className="object-cover transition-transform duration-300"
+  />
+</div>
+
+
 
         {/* Intro Text */}
         <div>
@@ -35,7 +37,7 @@ export default function Home() {
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 text-center">
         {[
           { number: '3+', label: 'Years of Coding' },
-          { number: '10+', label: 'Projects Built' },
+          { number: '5+', label: 'Projects Built' },
           { number: '5+', label: 'Tech Tools Mastered' },
         ].map((stat, i) => (
           <div
@@ -55,21 +57,21 @@ export default function Home() {
 
   <p className="text-gray-700 dark:text-gray-300 text-lg max-w-3xl">
     I’m Bedasa, a self-driven developer who enjoys turning ideas into real-world solutions. Whether I’m building a website or learning a new language, I’m always ready to dive in and explore.
-    iam based in Ethiopia and spend most of my time coding, laughing, and occasionally breaking things (just to fix them better 😉).
+    iam based in Ethiopia and spend most of my time coding and occasionally breaking things (just to fix them better 😉).
   </p>
 
   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 pt-4">
     <div className="bg-orange-50 dark:bg-zinc-800 border-l-4 border-orange-500 p-4 rounded-md shadow hover:shadow-lg transition">
       <h3 className="font-semibold text-orange-600">🎓 Education</h3>
       <p className="text-gray-600 dark:text-gray-300">
-        BSc in Information Systems, Hawassa University.
+         4<sup>th</sup> year Information System student at Hawassa University.
       </p>
     </div>
 
     <div className="bg-orange-50 dark:bg-zinc-800 border-l-4 border-orange-500 p-4 rounded-md shadow hover:shadow-lg transition">
       <h3 className="font-semibold text-orange-600">🧰 Skills Snapshot</h3>
       <p className="text-gray-600 dark:text-gray-300">
-        PHP, MySQL, Next.js, HTML, CSS, JavaScript, Tailwind, React
+        PHP, MySQL, Next.js, HTML, CSS, JavaScript, Tailwind, React,C++
       </p>
     </div>
 
@@ -83,7 +85,7 @@ export default function Home() {
     <div className="bg-orange-50 dark:bg-zinc-800 border-l-4 border-orange-500 p-4 rounded-md shadow hover:shadow-lg transition">
       <h3 className="font-semibold text-orange-600">💡 Hobbies</h3>
       <p className="text-gray-600 dark:text-gray-300">
-        Coding for fun, UI design, learning tech trends, watching YouTube tutorials.
+        Coding for fun, UI design, learning tech trends, playing football, watching YouTube tutorials and movies.
       </p>
     </div>
   </div>
@@ -132,12 +134,12 @@ export default function Home() {
         link: "https://your-iot-link.com"
       },
       {
-        name: "Student Info Dashboard",
-        image: "/images/student.png",
-        link: "https://your-student-dashboard.com"
+        name: "Ekub Platform",
+        image: "/images/ekub.jpg",
+        link: "https://your-ekub.com"
       },
       {
-        name: "E-commerce Site",
+         name: "E-commerce Site",
         image: "", // no image yet
         link: "https://your-ecommerce.com"
       },
@@ -147,9 +149,9 @@ export default function Home() {
         link: "https://your-portfolio.com"
       },
       {
-        name: "Ekub Platform",
+        name: "Student Info Dashboard",
         image: "", // no image yet
-        link: "https://your-ekub-app.com"
+        link: "https://your-stud-app.com"
       }
     ].map((project, i) => (
       <a
