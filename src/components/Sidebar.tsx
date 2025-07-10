@@ -1,11 +1,21 @@
-
+// components/Sidebar.tsx
 'use client'
-// src/components/Sidebar.tsx
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone } from 'react-icons/fa'
 
-export default function Sidebar() {
+import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaTimes } from 'react-icons/fa'
+
+export default function Sidebar({ closeSidebar }: { closeSidebar?: () => void }) {
   return (
     <div className="text-center fixed space-y-6 text-gray-800 dark:text-white">
+      {/* Close button for mobile */}
+      {closeSidebar && (
+        <button
+          onClick={closeSidebar}
+          className="sm:hidden text-orange-500 absolute top-4 right-4 text-2xl"
+        >
+          <FaTimes />
+        </button>
+      )}
+
       {/* Profile image */}
       <div className="mx-auto">
         <img
@@ -23,10 +33,9 @@ export default function Sidebar() {
         </p>
       </div>
 
-      {/* Divider */}
       <hr className="border-t border-orange-400 w-3/4 mx-auto" />
 
-      {/* Contact me */}
+      {/* Contact */}
       <div className="space-y-2 text-sm">
         <h2>Contact me</h2>
         <p className="flex items-center justify-center gap-2">
@@ -41,13 +50,10 @@ export default function Sidebar() {
         </p>
         <p className="flex items-center justify-center gap-2">
           <FaLinkedin className="text-orange-500" />
-
-
           <a href="https://linkedin.com/in/bedasa-negash" target="_blank">LinkedIn</a>
         </p>
       </div>
 
-      {/* Download CV button */}
       <button
         onClick={() => alert('CV not inserted yet 😅')}
         className="mt-4 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg shadow-sm transition"

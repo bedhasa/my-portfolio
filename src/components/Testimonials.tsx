@@ -34,7 +34,7 @@ export default function Testimonials() {
       <div className="text-center">
         <h2 className="text-3xl font-bold text-orange-600">💬 Testimonials</h2>
         <p className="text-gray-600 dark:text-gray-300 text-lg">
-          Leave your thoughts or encouragement — I'd love to hear from you!
+          Leave your thoughts or encouragement — I&aposd love to hear from you!
         </p>
       </div>
 
