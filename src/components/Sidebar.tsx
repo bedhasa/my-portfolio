@@ -30,7 +30,7 @@ export default function Sidebar() {
       <div className="space-y-2 text-sm">
         <h2>Contact me</h2>
         <p className="flex items-center justify-center gap-2">
-          <FaEnvelope className="text-orange-500" /> bdhsane@gmail.com
+          <FaEnvelope className="text-orange-500" /> <a href="mailto:bdhsane@gmail.com">bdhsane@gmail.com</a>
         </p>
         <p className="flex items-center justify-center gap-2">
           <FaPhone className="text-orange-500" /> +251 930 254 613
@@ -43,7 +43,7 @@ export default function Sidebar() {
           <FaLinkedin className="text-orange-500" />
 
 
-          <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+          <a href="https://linkedin.com/in/bedasa-negash" target="_blank">LinkedIn</a>
         </p>
       </div>
 
