@@ -1,7 +1,5 @@
-// components/Testimonials.tsx
 "use client";
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface Message {
   name: string;
@@ -13,10 +11,18 @@ export default function Testimonials() {
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
   const [messages, setMessages] = useState<Message[]>([]);
+  const [status, setStatus] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  // Load existing messages from your own backend
+  useEffect(() => {
+    fetch("/api/messages")
+      .then((res) => res.json())
+      .then((data) => setMessages(data.slice(0, 5)))
+      .catch(() => setStatus("Failed to load messages"));
+  }, []);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name || !content) return;
 
     const newMessage: Message = {
       name,
@@ -24,9 +30,31 @@ export default function Testimonials() {
       date: new Date().toLocaleString(),
     };
 
-    setMessages((prev) => [newMessage, ...prev].slice(0, 5)); // max 5
-    setName("");
-    setContent("");
+    try {
+      // Send to your own API to store for viewer display
+      await fetch("/api/messages", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(newMessage),
+      });
+
+      // Send to Formspree (for email)
+      await fetch("https://formspree.io/f/xrblzaoo", {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new URLSearchParams({
+          name: name,
+          message: content,
+        }),
+      });
+
+      setMessages((prev) => [newMessage, ...prev].slice(0, 5));
+      setName("");
+      setContent("");
+      setStatus("✅ Message sent!");
+    } catch (err) {
+      setStatus("❌ Failed to send message");
+    }
   };
 
   return (
@@ -34,7 +62,7 @@ export default function Testimonials() {
       <div className="text-center">
         <h2 className="text-3xl font-bold text-orange-600">💬 Testimonials</h2>
         <p className="text-gray-600 dark:text-gray-300 text-lg">
-          Leave your thoughts or encouragement — I&aposd love to hear from you!
+          Leave your thoughts or encouragement — I&apos;d love to hear from you!
         </p>
       </div>
 
@@ -45,6 +73,7 @@ export default function Testimonials() {
       >
         <input
           type="text"
+          name="name"
           placeholder="Your Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
@@ -52,22 +81,24 @@ export default function Testimonials() {
           required
         />
         <textarea
+          name="message"
           placeholder="Your message about Bedasa..."
           value={content}
           onChange={(e) => setContent(e.target.value)}
           className="w-full px-4 py-2 border rounded-lg border-orange-300 dark:border-zinc-600 bg-white dark:bg-zinc-900 text-gray-800 dark:text-white"
           rows={4}
           required
-        ></textarea>
+        />
         <button
           type="submit"
           className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-semibold transition"
         >
           Send Message
         </button>
+        {status && <p className="text-sm mt-2">{status}</p>}
       </form>
 
-      {/* Recent Messages */}
+      {/* Display top 5 messages */}
       <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {messages.map((msg, index) => (
           <div
