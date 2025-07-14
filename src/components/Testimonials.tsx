@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import { NextResponse } from "next/server";
 
 interface Message {
   name: string;
@@ -52,8 +53,8 @@ export default function Testimonials() {
       setName("");
       setContent("");
       setStatus("✅ Message sent!");
-    } catch (err) {
-      setStatus("❌ Failed to send message");
+    } catch  {
+      return NextResponse.json({ error: "Server error" }, { status: 500 });
     }
   };
 
