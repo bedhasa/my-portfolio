@@ -1,65 +1,76 @@
-// components/Sidebar.tsx
-'use client'
+"use client";
 
-import { FaGithub, FaLinkedin, FaEnvelope, FaPhone, FaTimes } from 'react-icons/fa'
+import Image from "next/image";
+import { Download, Mail, Phone, X } from "lucide-react";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { Button } from "@/components/ui/Button";
+import { SocialButton } from "@/components/ui/SocialButton";
 
 export default function Sidebar({ closeSidebar }: { closeSidebar?: () => void }) {
-  return (
-    <div className="text-center fixed space-y-6 text-gray-800 dark:text-white">
-      {/* Close button for mobile */}
-      {closeSidebar && (
-        <button
-          onClick={closeSidebar}
-          className="sm:hidden text-orange-500 absolute top-4 right-4 text-2xl"
-        >
-          <FaTimes />
-        </button>
-      )}
+  const showResumeNotice = () => {
+    alert("CV not inserted yet");
+  };
 
-      {/* Profile image */}
-      <div className="mx-auto">
-        <img
+  return (
+    <div className="relative space-y-6 text-center text-foreground">
+      {closeSidebar ? (
+        <button
+          type="button"
+          onClick={closeSidebar}
+          aria-label="Close sidebar"
+          className="absolute right-0 top-0 rounded-token-md p-2 text-accent transition-token hover:bg-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:hidden"
+        >
+          <X aria-hidden size={22} />
+        </button>
+      ) : null}
+
+      <div className="mx-auto pt-8 sm:pt-0">
+        <Image
           src="/images/profile.jpg"
           alt="Bedasa"
-          className="w-40 h-40 object-cover mx-auto rounded-2xl shadow-md border-4 border-orange-500"
+          width={160}
+          height={160}
+          priority
+          className="mx-auto h-40 w-40 rounded-token-lg border-4 border-accent object-cover shadow-soft"
         />
       </div>
 
-      {/* Name & bio */}
       <div>
-        <h1 className="text-2xl font-bold text-orange-600">Bedasa Negash</h1>
-        <p className="text-sm italic text-gray-600 dark:text-gray-300 mt-1">
-          I am a developer, code for fun 😄
-        </p>
+        <h1 className="font-heading text-2xl font-bold text-accent">Bedasa Negash</h1>
+        <p className="mt-1 text-sm italic text-muted">I am a developer, code for fun</p>
       </div>
 
-      <hr className="border-t border-orange-400 w-3/4 mx-auto" />
+      <hr className="mx-auto w-3/4 border-t border-accent/50" />
 
-      {/* Contact */}
-      <div className="space-y-2 text-sm">
-        <h2>Contact me</h2>
-        <p className="flex items-center justify-center gap-2">
-          <FaEnvelope className="text-orange-500" /> <a href="mailto:bdhsane@gmail.com">bdhsane@gmail.com</a>
+      <div className="space-y-3 text-sm">
+        <h2 className="font-heading font-semibold text-foreground">Contact me</h2>
+        <p className="flex items-center justify-center gap-2 text-muted">
+          <Mail aria-hidden className="text-accent" size={16} />
+          <a className="transition-token hover:text-accent" href="mailto:bdhsane@gmail.com">
+            bdhsane@gmail.com
+          </a>
         </p>
-        <p className="flex items-center justify-center gap-2">
-          <FaPhone className="text-orange-500" /> +251 930 254 613
+        <p className="flex items-center justify-center gap-2 text-muted">
+          <Phone aria-hidden className="text-accent" size={16} />
+          +251 930 254 613
         </p>
-        <p className="flex items-center justify-center gap-2">
-          <FaGithub className="text-orange-500" />
-          <a href="https://github.com/bedhasa" target="_blank">GitHub</a>
-        </p>
-        <p className="flex items-center justify-center gap-2">
-          <FaLinkedin className="text-orange-500" />
-          <a href="https://linkedin.com/in/bedasa-negash" target="_blank">LinkedIn</a>
-        </p>
+        <div className="flex justify-center gap-3 pt-2">
+          <SocialButton label="GitHub" href="https://github.com/bedhasa" target="_blank" rel="noopener noreferrer">
+            <FaGithub aria-hidden size={18} />
+          </SocialButton>
+          <SocialButton label="LinkedIn" href="https://linkedin.com/in/bedasa-negash" target="_blank" rel="noopener noreferrer">
+            <FaLinkedin aria-hidden size={18} />
+          </SocialButton>
+          <SocialButton label="Email Bedasa" href="mailto:bdhsane@gmail.com">
+            <Mail aria-hidden size={18} />
+          </SocialButton>
+        </div>
       </div>
 
-      <button
-        onClick={() => alert('CV not inserted yet 😅')}
-        className="mt-4 px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg shadow-sm transition"
-      >
+      <Button type="button" onClick={showResumeNotice} className="mt-4">
+        <Download aria-hidden size={16} />
         Download CV
-      </button>
+      </Button>
     </div>
-  )
+  );
 }

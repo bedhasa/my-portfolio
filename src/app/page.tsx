@@ -5,7 +5,7 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";
 import Testimonials from "@/components/Testimonials";
-import SectionWrapper from "@/components/SectionWrapper"; // 👈 Import this
+import SectionWrapper from "@/components/SectionWrapper";
 
 export default function Home() {
   return (
@@ -18,13 +18,13 @@ export default function Home() {
       </SectionWrapper>
 
       <SectionWrapper delay={0.1}>
-        <section id="about">
+        <section id="journey">
           <About />
         </section>
       </SectionWrapper>
 
       <SectionWrapper delay={0.2}>
-        <section id="skills">
+        <section id="services">
           <Skills />
         </section>
       </SectionWrapper>
@@ -36,11 +36,15 @@ export default function Home() {
       </SectionWrapper>
 
       <SectionWrapper delay={0.4}>
-        <Testimonials />
+        <section id="contact">
+          <Testimonials />
+        </section>
       </SectionWrapper>
 
       <SectionWrapper delay={0.5}>
-        <Footer />
+        <section id="blog" aria-label="Blog foundation">
+          <Footer />
+        </section>
       </SectionWrapper>
     </div>
   );

@@ -1,40 +1,37 @@
-// components/ResponsiveLayout.tsx
-'use client'
+"use client";
 
-import Sidebar from './Sidebar'
-import Navbar from './Navbar'
-import { useState } from 'react'
+import { useState } from "react";
+import Navbar from "./Navbar";
+import Sidebar from "./Sidebar";
 
 export default function ResponsiveLayout({ children }: { children: React.ReactNode }) {
-  const [showSidebar, setShowSidebar] = useState(false)
+  const [showSidebar, setShowSidebar] = useState(false);
 
   return (
-    <div className="flex min-h-screen bg-white text-gray-900 dark:bg-zinc-900 dark:text-white">
-      {/* Mobile Overlay */}
-      {showSidebar && (
-        <div
-          className="fixed inset-0 bg-black/30 z-30 sm:hidden"
+    <div className="flex min-h-screen bg-background text-foreground">
+      {showSidebar ? (
+        <button
+          type="button"
+          aria-label="Close sidebar"
+          className="fixed inset-0 z-30 bg-black/45 backdrop-blur-sm sm:hidden"
           onClick={() => setShowSidebar(false)}
         />
-      )}
+      ) : null}
 
-      {/* Sidebar */}
-    <aside
-  className={`fixed top-0 left-0 z-40 w-[280px] h-screen overflow-y-auto border-r border-gray-200 dark:border-zinc-800 p-4 bg-gray-100 dark:bg-zinc-800 transform transition-transform duration-300
-  ${showSidebar ? 'translate-x-0' : '-translate-x-full'} sm:translate-x-0`}
->
-  <Sidebar closeSidebar={() => setShowSidebar(false)} />
-</aside>
+      <aside
+        className={`fixed left-0 top-0 z-40 h-screen w-[280px] overflow-y-auto border-r border-border bg-surface/90 p-4 shadow-soft backdrop-blur-xl transition-transform duration-300 ease-premium ${
+          showSidebar ? "translate-x-0" : "-translate-x-full"
+        } sm:translate-x-0`}
+      >
+        <Sidebar closeSidebar={() => setShowSidebar(false)} />
+      </aside>
 
-      {/* Main Content */}
-      <div className="flex-1 flex flex-col sm:ml-[280px]">
-  <Navbar onMenuClick={() => setShowSidebar(true)} />
-  
-  <main className="flex-1 px-6 md:px-10 mt-10 scroll-smooth">
-    {children}
-  </main>
-</div>
-
+      <div className="flex flex-1 flex-col sm:ml-[280px]">
+        <Navbar onMenuClick={() => setShowSidebar(true)} />
+        <main className="relative z-10 mt-10 flex-1 scroll-smooth px-section-x">
+          {children}
+        </main>
+      </div>
     </div>
-  )
+  );
 }
