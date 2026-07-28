@@ -5,14 +5,26 @@ import { Download, Mail, Phone, X } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { Button } from "@/components/ui/Button";
 import { SocialButton } from "@/components/ui/SocialButton";
+import { cn } from "@/lib/utils";
 
-export default function Sidebar({ closeSidebar }: { closeSidebar?: () => void }) {
+export default function Sidebar({
+  closeSidebar,
+  collapsed = false,
+}: {
+  closeSidebar?: () => void;
+  collapsed?: boolean;
+}) {
   const showResumeNotice = () => {
     alert("CV not inserted yet");
   };
 
   return (
-    <div className="relative space-y-6 text-center text-foreground">
+    <div
+      className={cn(
+        "relative text-center text-foreground transition-token",
+        collapsed ? "space-y-5" : "space-y-6",
+      )}
+    >
       {closeSidebar ? (
         <button
           type="button"
@@ -28,33 +40,59 @@ export default function Sidebar({ closeSidebar }: { closeSidebar?: () => void })
         <Image
           src="/images/profile.jpg"
           alt="Bedasa"
-          width={160}
-          height={160}
+          width={collapsed ? 56 : 160}
+          height={collapsed ? 56 : 160}
           priority
-          className="mx-auto h-40 w-40 rounded-token-lg border-4 border-accent object-cover shadow-soft"
+          className={cn(
+            "mx-auto rounded-token-lg border-accent object-cover shadow-soft transition-token",
+            collapsed ? "h-14 w-14 border-2" : "h-40 w-40 border-4",
+          )}
         />
       </div>
 
-      <div>
+      <div className={cn(collapsed && "sr-only")}>
         <h1 className="font-heading text-2xl font-bold text-accent">Bedasa Negash</h1>
         <p className="mt-1 text-sm italic text-muted">I am a developer, code for fun</p>
       </div>
 
-      <hr className="mx-auto w-3/4 border-t border-accent/50" />
+      <hr className={cn("mx-auto border-t border-accent/50", collapsed ? "w-10" : "w-3/4")} />
 
       <div className="space-y-3 text-sm">
-        <h2 className="font-heading font-semibold text-foreground">Contact me</h2>
-        <p className="flex items-center justify-center gap-2 text-muted">
-          <Mail aria-hidden className="text-accent" size={16} />
-          <a className="transition-token hover:text-accent" href="mailto:bdhsane@gmail.com">
-            bdhsane@gmail.com
-          </a>
-        </p>
-        <p className="flex items-center justify-center gap-2 text-muted">
-          <Phone aria-hidden className="text-accent" size={16} />
-          +251 930 254 613
-        </p>
-        <div className="flex justify-center gap-3 pt-2">
+        <h2 className={cn("font-heading font-semibold text-foreground", collapsed && "sr-only")}>Contact me</h2>
+        {collapsed ? (
+          <div className="flex flex-col items-center gap-3">
+            <a
+              className="inline-flex h-10 w-10 items-center justify-center rounded-token-full border border-border bg-background text-accent shadow-soft transition-token hover:border-accent/60 hover:shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              href="mailto:bdhsane@gmail.com"
+              aria-label="Email Bedasa"
+              title="Email Bedasa"
+            >
+              <Mail aria-hidden size={17} />
+            </a>
+            <a
+              className="inline-flex h-10 w-10 items-center justify-center rounded-token-full border border-border bg-background text-accent shadow-soft transition-token hover:border-accent/60 hover:shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+              href="tel:+251930254613"
+              aria-label="Call Bedasa"
+              title="Call Bedasa"
+            >
+              <Phone aria-hidden size={17} />
+            </a>
+          </div>
+        ) : (
+          <>
+            <p className="flex items-center justify-center gap-2 text-muted">
+              <Mail aria-hidden className="text-accent" size={16} />
+              <a className="transition-token hover:text-accent" href="mailto:bdhsane@gmail.com">
+                bdhsane@gmail.com
+              </a>
+            </p>
+            <p className="flex items-center justify-center gap-2 text-muted">
+              <Phone aria-hidden className="text-accent" size={16} />
+              +251 930 254 613
+            </p>
+          </>
+        )}
+        <div className={cn("flex justify-center gap-3 pt-2", collapsed && "flex-col items-center")}>
           <SocialButton label="GitHub" href="https://github.com/bedhasa" target="_blank" rel="noopener noreferrer">
             <FaGithub aria-hidden size={18} />
           </SocialButton>
@@ -67,9 +105,15 @@ export default function Sidebar({ closeSidebar }: { closeSidebar?: () => void })
         </div>
       </div>
 
-      <Button type="button" onClick={showResumeNotice} className="mt-4">
+      <Button
+        type="button"
+        onClick={showResumeNotice}
+        className={cn("mt-4", collapsed && "h-10 w-10 px-0")}
+        aria-label={collapsed ? "Download CV" : undefined}
+        title={collapsed ? "Download CV" : undefined}
+      >
         <Download aria-hidden size={16} />
-        Download CV
+        <span className={cn(collapsed && "sr-only")}>Download CV</span>
       </Button>
     </div>
   );

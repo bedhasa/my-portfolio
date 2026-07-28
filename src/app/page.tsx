@@ -1,5 +1,4 @@
 import ProfileSection from "@/components/ProfileSection";
-import Stats from "@/components/Stats";
 import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
@@ -9,19 +8,16 @@ import SectionWrapper from "@/components/SectionWrapper";
 
 export default function Home() {
   return (
-    <div className="space-y-20 scroll-smooth">
+    <div className="space-y-12 scroll-smooth md:space-y-16">
       <SectionWrapper delay={0}>
-        <section id="home" className="space-y-12">
+        <section id="home">
           <ProfileSection />
-          <Stats />
         </section>
       </SectionWrapper>
 
-      <SectionWrapper delay={0.1}>
-        <section id="journey">
-          <About />
-        </section>
-      </SectionWrapper>
+      <section id="journey">
+        <About />
+      </section>
 
       <SectionWrapper delay={0.2}>
         <section id="services">
