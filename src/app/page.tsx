@@ -8,7 +8,7 @@ import SectionWrapper from "@/components/SectionWrapper";
 
 export default function Home() {
   return (
-    <div className="space-y-12 scroll-smooth md:space-y-16">
+    <div className="space-y-6 scroll-smooth md:space-y-8">
       <SectionWrapper delay={0}>
         <section id="home">
           <ProfileSection />

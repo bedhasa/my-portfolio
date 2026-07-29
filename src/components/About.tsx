@@ -190,7 +190,7 @@ export default function About() {
   });
 
   return (
-    <div className="space-y-28 px-section-x pt-4 md:space-y-32" aria-label="About Bedasa Negash">
+    <div className="space-y-28 px-section-x pt-0 md:space-y-32" aria-label="About Bedasa Negash">
       <section aria-labelledby="who-i-am-heading" className="mx-auto max-w-container">
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(280px,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
           <div className="relative mx-auto w-full max-w-[29rem] lg:mx-0">

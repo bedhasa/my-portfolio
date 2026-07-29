@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 
 export default function ResponsiveLayout({ children }: { children: React.ReactNode }) {
   const [showSidebar, setShowSidebar] = useState(false);
-  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
 
   return (
     <div className="flex min-h-screen bg-background text-foreground">

@@ -115,7 +115,7 @@ export default function ProfileSection() {
   return (
     <section
       aria-labelledby="hero-heading"
-      className="relative isolate overflow-hidden px-section-x pb-10 pt-4 sm:pt-6 md:pb-12 lg:pb-14 lg:pt-8"
+      className="relative isolate overflow-hidden px-section-x pb-4 pt-4 sm:pt-6 md:pb-6 lg:pb-8 lg:pt-8"
     >
       <div className="absolute right-[-18%] top-[6%] -z-10 h-72 w-72 rounded-token-full bg-accent/18 blur-3xl sm:h-96 sm:w-96 lg:right-[-8%] lg:h-[30rem] lg:w-[30rem]" />
       <div className="absolute left-1/2 top-3 -z-10 h-px w-[78vw] -translate-x-1/2 bg-gradient-to-r from-transparent via-accent/35 to-transparent" />
@@ -277,7 +277,7 @@ export default function ProfileSection() {
       <motion.a
         href="#journey"
         aria-label="Scroll to the next section"
-        className="mx-auto mt-10 flex h-10 w-10 items-center justify-center rounded-token-full border border-border bg-white/90 text-neutral-700 shadow-soft backdrop-blur-xl transition-token hover:border-accent/60 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:bg-black/70 dark:text-neutral-200"
+        className="mx-auto mt-6 flex h-10 w-10 items-center justify-center rounded-token-full border border-border bg-white/90 text-neutral-700 shadow-soft backdrop-blur-xl transition-token hover:border-accent/60 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:bg-black/70 dark:text-neutral-200"
         initial={{ opacity: 0, y: 10 }}
         animate={
           shouldReduceMotion
