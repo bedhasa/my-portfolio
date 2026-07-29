@@ -241,7 +241,7 @@ export default function About() {
             <div className="mt-9">
               <a
                 href="#projects"
-                className="inline-flex h-12 items-center justify-center rounded-token-full bg-accent px-6 text-sm font-semibold text-white shadow-glow transition-token hover:-translate-y-0.5 hover:bg-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+                className="inline-flex h-12 items-center justify-center rounded-token-full bg-neutral-950 px-6 text-sm font-semibold text-white shadow-glow transition-token hover:-translate-y-0.5 hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:bg-accent dark:hover:bg-accent-strong"
               >
                 View Projects
               </a>
@@ -303,7 +303,7 @@ export default function About() {
           </h3>
           <a
             href="#projects"
-            className="mt-6 inline-flex h-12 items-center justify-center rounded-token-full bg-accent px-6 text-sm font-semibold text-white shadow-glow transition-token hover:-translate-y-0.5 hover:bg-accent-strong focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background"
+            className="mt-6 inline-flex h-12 items-center justify-center rounded-token-full bg-neutral-950 px-6 text-sm font-semibold text-white shadow-glow transition-token hover:-translate-y-0.5 hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:bg-accent dark:hover:bg-accent-strong"
           >
             View Projects
           </a>

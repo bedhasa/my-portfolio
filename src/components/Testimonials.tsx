@@ -60,8 +60,8 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="mt-20 space-y-10">
       <div className="text-center">
-        <h2 className="text-3xl font-bold text-orange-600">💬 Testimonials</h2>
-        <p className="text-gray-600 dark:text-gray-300 text-lg">
+        <h2 className="text-3xl font-bold text-orange-700 dark:text-orange-300">💬 Testimonials</h2>
+        <p className="text-neutral-800 dark:text-neutral-200 text-lg">
           Leave your thoughts or encouragement — I&apos;d love to hear from you!
         </p>
       </div>
@@ -77,7 +77,7 @@ export default function Testimonials() {
           placeholder="Your Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="w-full px-4 py-2 border rounded-lg border-orange-300 dark:border-zinc-600 bg-white dark:bg-zinc-900 text-gray-800 dark:text-white"
+          className="w-full px-4 py-2 border rounded-lg border-orange-400 dark:border-zinc-600 bg-white dark:bg-zinc-900 text-neutral-950 dark:text-white placeholder:text-neutral-500 dark:placeholder:text-neutral-400"
           required
         />
         <textarea
@@ -85,17 +85,17 @@ export default function Testimonials() {
           placeholder="Your message about Bedasa..."
           value={content}
           onChange={(e) => setContent(e.target.value)}
-          className="w-full px-4 py-2 border rounded-lg border-orange-300 dark:border-zinc-600 bg-white dark:bg-zinc-900 text-gray-800 dark:text-white"
+          className="w-full px-4 py-2 border rounded-lg border-orange-400 dark:border-zinc-600 bg-white dark:bg-zinc-900 text-neutral-950 dark:text-white placeholder:text-neutral-500 dark:placeholder:text-neutral-400"
           rows={4}
           required
         />
         <button
           type="submit"
-          className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-lg font-semibold transition"
+          className="bg-neutral-950 hover:bg-accent text-white dark:bg-accent dark:hover:bg-accent-strong px-6 py-2 rounded-lg font-semibold transition"
         >
           Send Message
         </button>
-        {status && <p className="text-sm mt-2">{status}</p>}
+        {status && <p className="text-sm mt-2 text-neutral-950 dark:text-white">{status}</p>}
       </form>
 
       {/* Display top 5 messages */}
@@ -103,12 +103,12 @@ export default function Testimonials() {
         {messages.map((msg, index) => (
           <div
             key={index}
-            className="bg-orange-50 dark:bg-zinc-800 border border-orange-200 dark:border-zinc-700 p-5 rounded-xl shadow hover:shadow-lg transition-all"
+            className="bg-orange-50 dark:bg-zinc-800 border border-orange-300 dark:border-zinc-700 p-5 rounded-xl shadow hover:shadow-lg transition-all"
           >
-            <p className="text-gray-700 dark:text-gray-300 italic">“{msg.content}”</p>
-            <div className="mt-4 text-sm text-orange-600 font-medium">
+            <p className="text-neutral-900 dark:text-neutral-200 italic">“{msg.content}”</p>
+            <div className="mt-4 text-sm text-orange-700 dark:text-orange-300 font-medium">
               — {msg.name}
-              <div className="text-xs text-gray-500 dark:text-gray-400">{msg.date}</div>
+              <div className="text-xs text-neutral-700 dark:text-neutral-300">{msg.date}</div>
             </div>
           </div>
         ))}

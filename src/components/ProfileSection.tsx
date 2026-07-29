@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion, type TargetAndTransition, type Variants } from "framer-motion";
-import { ArrowDown, BriefcaseBusiness, Download, Mail, MapPin, Sparkles } from "lucide-react";
+import { BriefcaseBusiness, Mail, MapPin, Sparkles } from "lucide-react";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 
 const titles = [
@@ -101,10 +101,6 @@ export default function ProfileSection() {
   const typedTitle = useTypingAnimation(titles);
   const shouldReduceMotion = useReducedMotion();
 
-  const showResumeNotice = () => {
-    alert("CV not inserted yet");
-  };
-
   const floatingAnimation: TargetAndTransition | undefined = shouldReduceMotion
     ? undefined
     : {
@@ -173,26 +169,16 @@ export default function ProfileSection() {
               href="#projects"
               whileHover={shouldReduceMotion ? undefined : { scale: 1.03 }}
               whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
-              className={`${heroButtonClass} bg-accent text-white shadow-glow hover:bg-accent-strong`}
+              className={`${heroButtonClass} bg-neutral-950 text-white shadow-glow hover:bg-accent dark:bg-accent dark:hover:bg-accent-strong`}
             >
               <BriefcaseBusiness aria-hidden size={18} />
               View My Work
             </motion.a>
-            <motion.button
-              type="button"
-              onClick={showResumeNotice}
-              whileHover={shouldReduceMotion ? undefined : { scale: 1.03 }}
-              whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
-              className={`${heroButtonClass} border border-border bg-white/95 text-neutral-950 hover:border-accent/70 hover:text-accent hover:shadow-glow dark:bg-black/70 dark:text-white`}
-            >
-              <Download aria-hidden size={18} />
-              Download Resume
-            </motion.button>
             <motion.a
               href="#contact"
               whileHover={shouldReduceMotion ? undefined : { scale: 1.03 }}
               whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
-              className={`${heroButtonClass} border border-border/70 bg-transparent text-neutral-950 hover:border-accent/60 hover:bg-accent/10 hover:text-accent hover:shadow-glow dark:text-white`}
+              className={`${heroButtonClass} border border-border/70 bg-transparent text-foreground hover:border-accent hover:bg-accent hover:text-white hover:shadow-glow`}
             >
               <Mail aria-hidden size={18} />
               Contact Me
@@ -274,24 +260,6 @@ export default function ProfileSection() {
         </motion.div>
       </div>
 
-      <motion.a
-        href="#journey"
-        aria-label="Scroll to the next section"
-        className="mx-auto mt-6 flex h-10 w-10 items-center justify-center rounded-token-full border border-border bg-white/90 text-neutral-700 shadow-soft backdrop-blur-xl transition-token hover:border-accent/60 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:bg-black/70 dark:text-neutral-200"
-        initial={{ opacity: 0, y: 10 }}
-        animate={
-          shouldReduceMotion
-            ? { opacity: 1, y: 0 }
-            : { opacity: 1, y: [0, 8, 0] }
-        }
-        transition={
-          shouldReduceMotion
-            ? { delay: 1.1, duration: 0.35 }
-            : { delay: 1.1, duration: 1.8, repeat: Infinity, ease: "easeInOut" }
-        }
-      >
-        <ArrowDown aria-hidden size={18} />
-      </motion.a>
     </section>
   );
 }

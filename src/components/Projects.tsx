@@ -42,8 +42,8 @@ export default function Projects() {
   return (
     <div className="mt-20 space-y-8">
       <div className="text-center">
-        <h2 className="text-3xl font-bold text-orange-600">📁 Projects</h2>
-        <p className="text-gray-600 dark:text-gray-300 text-lg max-w-2xl mx-auto">
+        <h2 className="text-3xl font-bold text-orange-700 dark:text-orange-300">📁 Projects</h2>
+        <p className="text-neutral-800 dark:text-neutral-200 text-lg max-w-2xl mx-auto">
           Explore some of my recent projects. Click a card to check availability.
         </p>
       </div>
@@ -52,7 +52,7 @@ export default function Projects() {
         {projects.map((project, i) => (
           <div
             key={i}
-            className="bg-white dark:bg-zinc-800 rounded-xl overflow-hidden shadow hover:shadow-xl transition-all duration-300 transform hover:scale-[1.03] border border-orange-200 dark:border-zinc-700"
+            className="bg-white dark:bg-zinc-800 rounded-xl overflow-hidden shadow hover:shadow-xl transition-all duration-300 transform hover:scale-[1.03] border border-orange-300 dark:border-zinc-700"
           >
             <div
               onClick={() => handleClick(i)}
@@ -67,13 +67,13 @@ export default function Projects() {
                     className="object-cover w-full h-full transition-transform duration-300 hover:scale-110"
                   />
                 ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-gray-100 dark:bg-zinc-700 text-gray-400 dark:text-gray-500 text-lg">
+                  <div className="w-full h-full flex items-center justify-center bg-neutral-100 dark:bg-zinc-700 text-neutral-700 dark:text-neutral-200 text-lg">
                     coming soon
                   </div>
                 )}
               </div>
               <div className="p-4 text-center">
-                <h3 className="text-xl font-semibold text-orange-600">
+                <h3 className="text-xl font-semibold text-orange-700 dark:text-orange-300">
                   {project.name}
                 </h3>
               </div>

@@ -19,7 +19,7 @@ const navItems = [
 export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
   const [menuOpen, setMenuOpen] = useState(false);
   const linkClass =
-    "rounded-token-full px-3 py-2 text-sm font-medium text-muted transition-token hover:bg-surface hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background";
+    "rounded-token-full px-3 py-2 text-sm font-medium text-foreground transition-token hover:bg-accent hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background";
 
   const openGithub = () => {
     window.open("https://github.com/bedhasa", "_blank", "noopener,noreferrer");
@@ -39,14 +39,14 @@ export default function Navbar({ onMenuClick }: { onMenuClick?: () => void }) {
           <button
             type="button"
             aria-label="Open sidebar"
-            className="rounded-token-md p-2 text-accent transition-token hover:bg-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:hidden"
+            className="rounded-token-md p-2 text-accent transition-token hover:bg-accent hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:hidden"
             onClick={onMenuClick}
           >
             <Menu aria-hidden size={22} />
           </button>
           <a
             href="#home"
-            className="font-heading text-xl font-bold text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            className="rounded-token-md px-2 py-1 font-heading text-xl font-bold text-accent transition-token hover:bg-accent hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
           >
             Bdhs.
           </a>

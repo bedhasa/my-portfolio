@@ -38,7 +38,7 @@ export default function ResponsiveLayout({ children }: { children: React.ReactNo
           aria-label={sidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
           aria-expanded={!sidebarCollapsed}
           onClick={() => setSidebarCollapsed((collapsed) => !collapsed)}
-          className="absolute -right-4 top-24 hidden h-8 w-8 items-center justify-center rounded-token-full border border-border bg-background text-accent shadow-soft transition-token hover:-translate-y-0.5 hover:border-accent/60 hover:shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:flex"
+          className="absolute -right-4 top-24 hidden h-8 w-8 items-center justify-center rounded-token-full border border-border bg-background text-accent shadow-soft transition-token hover:-translate-y-0.5 hover:border-accent hover:bg-accent hover:text-white hover:shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:flex"
         >
           {sidebarCollapsed ? <ChevronRight aria-hidden size={17} /> : <ChevronLeft aria-hidden size={17} />}
         </button>
@@ -47,11 +47,11 @@ export default function ResponsiveLayout({ children }: { children: React.ReactNo
       <div
         className={cn(
           "flex flex-1 flex-col transition-[margin] duration-300 ease-premium",
-          sidebarCollapsed ? "sm:ml-[88px]" : "sm:ml-[280px]",
+          sidebarCollapsed ? "sm:ml-[112px]" : "sm:ml-[304px]",
         )}
       >
         <Navbar onMenuClick={() => setShowSidebar(true)} />
-        <main className="relative z-10 mt-10 flex-1 scroll-smooth px-section-x">
+        <main className="relative z-10 mt-10 flex-1 scroll-smooth px-section-x sm:pr-8">
           {children}
         </main>
       </div>

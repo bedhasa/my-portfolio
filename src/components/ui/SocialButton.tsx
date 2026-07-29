@@ -10,7 +10,7 @@ export function SocialButton({ label, className, children, ...props }: SocialBut
     <a
       aria-label={label}
       className={cn(
-        "inline-flex h-10 w-10 items-center justify-center rounded-token-full border border-border bg-surface text-muted transition-token hover:border-accent/60 hover:text-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background",
+        "inline-flex h-10 w-10 items-center justify-center rounded-token-full border border-border bg-background text-foreground transition-token hover:border-accent hover:bg-accent hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:bg-surface dark:text-white dark:hover:bg-accent dark:hover:text-white",
         className,
       )}
       {...props}
