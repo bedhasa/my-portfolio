@@ -8,8 +8,6 @@ export default function Skills() {
     { name: "Next.js", icon: <SiNextdotjs size={32} /> },
     { name: "Tailwind CSS", icon: <SiTailwindcss size={32} /> },
     { name: "JavaScript", icon: <FaJs size={32} /> },
-    { name: "HTML5", icon: <FaHtml5 size={32} /> },
-    { name: "CSS3", icon: <FaCss3Alt size={32} /> },
     { name: "PHP", icon: <FaPhp size={32} /> },
     { name: "MySQL", icon: <SiMysql size={32} /> },
   ];
