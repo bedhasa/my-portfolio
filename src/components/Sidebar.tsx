@@ -6,15 +6,6 @@ import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { SocialButton } from "@/components/ui/SocialButton";
 import { cn } from "@/lib/utils";
 
-const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "Journey", href: "#journey" },
-  { label: "Projects", href: "#projects" },
-  { label: "Services", href: "#services" },
-  { label: "Blog", href: "#blog" },
-  { label: "Contact", href: "#contact" },
-];
-
 export default function Sidebar({
   closeSidebar,
   collapsed = false,
@@ -31,10 +22,10 @@ export default function Sidebar({
     >
       {closeSidebar ? (
         <button
-          type="button"
+type="button"
           onClick={closeSidebar}
           aria-label="Close sidebar"
-          className="absolute right-0 top-0 rounded-token-md p-2 text-accent transition-token hover:bg-accent hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:hidden"
+          className="absolute right-0 top-0 rounded-token-md p-2 text-accent transition-token hover:bg-accent hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:hidden"
         >
           <X aria-hidden size={22} />
         </button>
@@ -58,24 +49,6 @@ export default function Sidebar({
         <h1 className="font-heading text-2xl font-bold text-accent">Bedasa Negash</h1>
         <p className="mt-1 text-sm italic text-neutral-800 dark:text-neutral-200">I am a developer, code for fun</p>
       </div>
-
-      <hr className={cn("mx-auto border-t border-accent/50", collapsed ? "w-10" : "w-3/4")} />
-
-      <nav className={cn(collapsed && "sr-only")} aria-label="Sidebar navigation">
-        <ul className="space-y-1">
-          {navItems.map((item) => (
-            <li key={item.href}>
-              <a
-                href={item.href}
-                onClick={closeSidebar}
-                className="flex items-center justify-center gap-2 rounded-token-full px-4 py-2.5 text-sm font-medium text-foreground transition-token hover:bg-accent hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </nav>
 
       <hr className={cn("mx-auto border-t border-accent/50", collapsed ? "w-10" : "w-3/4")} />
 

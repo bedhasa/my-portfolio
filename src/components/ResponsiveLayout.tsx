@@ -10,7 +10,7 @@ export default function ResponsiveLayout({ children }: { children: React.ReactNo
   const [showSidebar, setShowSidebar] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
 
-  // When opening the sidebar on mobile, show it expanded so nav links & profile are visible.
+  // When opening the sidebar on mobile, show it expanded so the profile is visible.
   const openSidebar = () => {
     setSidebarCollapsed(false);
     setShowSidebar(true);
@@ -22,7 +22,7 @@ export default function ResponsiveLayout({ children }: { children: React.ReactNo
         <button
           type="button"
           aria-label="Close sidebar"
-          className="fixed inset-0 z-30 bg-black/45 backdrop-blur-sm sm:hidden"
+          className="fixed inset-0 z-30 bg-black/45 backdrop-blur-sm lg:hidden"
           onClick={() => setShowSidebar(false)}
         />
       ) : null}
@@ -31,8 +31,8 @@ export default function ResponsiveLayout({ children }: { children: React.ReactNo
         className={cn(
           "fixed left-0 top-0 z-40 h-screen overflow-visible border-r border-border bg-surface/90 shadow-soft backdrop-blur-xl transition-[width,transform] duration-300 ease-premium",
           showSidebar ? "translate-x-0" : "-translate-x-full",
-          sidebarCollapsed ? "sm:w-[88px]" : "sm:w-[280px]",
-          "w-[280px] sm:translate-x-0",
+          sidebarCollapsed ? "lg:w-[88px]" : "lg:w-[280px]",
+          "w-[280px] lg:translate-x-0",
         )}
       >
         <div className="h-full overflow-y-auto p-4">
@@ -44,7 +44,7 @@ export default function ResponsiveLayout({ children }: { children: React.ReactNo
           aria-label={sidebarCollapsed ? "Expand sidebar" : "Collapse sidebar"}
           aria-expanded={!sidebarCollapsed}
           onClick={() => setSidebarCollapsed((collapsed) => !collapsed)}
-          className="absolute -right-4 top-24 hidden h-8 w-8 items-center justify-center rounded-token-full border border-border bg-background text-accent shadow-soft transition-token hover:-translate-y-0.5 hover:border-accent hover:bg-accent hover:text-white hover:shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent sm:flex"
+          className="absolute -right-4 top-24 hidden h-8 w-8 items-center justify-center rounded-token-full border border-border bg-background text-accent shadow-soft transition-token hover:-translate-y-0.5 hover:border-accent hover:bg-accent hover:text-white hover:shadow-glow focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent lg:flex"
         >
           {sidebarCollapsed ? <ChevronRight aria-hidden size={17} /> : <ChevronLeft aria-hidden size={17} />}
         </button>
@@ -53,7 +53,7 @@ export default function ResponsiveLayout({ children }: { children: React.ReactNo
       <div
         className={cn(
           "flex flex-1 flex-col transition-[margin] duration-300 ease-premium",
-          sidebarCollapsed ? "sm:ml-[112px]" : "sm:ml-[304px]",
+          sidebarCollapsed ? "lg:ml-[112px]" : "lg:ml-[304px]",
         )}
       >
         <Navbar onMenuClick={openSidebar} />
