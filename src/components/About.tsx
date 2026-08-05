@@ -187,7 +187,7 @@ export default function About() {
     <div className="space-y-28 px-section-x pt-0 md:space-y-32" aria-label="About Bedasa Negash">
       <section aria-labelledby="who-i-am-heading" className="mx-auto max-w-container">
         <div className="grid items-center gap-12 lg:grid-cols-[minmax(280px,0.9fr)_minmax(0,1.1fr)] lg:gap-16">
-          <div className="relative mx-auto w-full max-w-[29rem] lg:mx-0">
+          <div className="relative mx-auto hidden w-full max-w-[29rem] lg:mx-0 lg:block">
             <div className="absolute inset-8 -z-10 rounded-[2rem] bg-accent/20 blur-3xl" />
             <div className="overflow-hidden rounded-[1.75rem] border border-accent/20 bg-white/70 p-3 shadow-soft backdrop-blur-2xl dark:bg-black/45">
               <div className="relative aspect-[4/5] overflow-hidden rounded-[1.25rem] bg-surface">

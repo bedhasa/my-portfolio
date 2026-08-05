@@ -10,6 +10,12 @@ export default function ResponsiveLayout({ children }: { children: React.ReactNo
   const [showSidebar, setShowSidebar] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(true);
 
+  // When opening the sidebar on mobile, show it expanded so nav links & profile are visible.
+  const openSidebar = () => {
+    setSidebarCollapsed(false);
+    setShowSidebar(true);
+  };
+
   return (
     <div className="flex min-h-screen bg-background text-foreground">
       {showSidebar ? (
@@ -50,7 +56,7 @@ export default function ResponsiveLayout({ children }: { children: React.ReactNo
           sidebarCollapsed ? "sm:ml-[112px]" : "sm:ml-[304px]",
         )}
       >
-        <Navbar onMenuClick={() => setShowSidebar(true)} />
+        <Navbar onMenuClick={openSidebar} />
         <main className="relative z-10 mt-10 flex-1 scroll-smooth px-section-x sm:pr-8">
           {children}
         </main>
@@ -58,3 +64,4 @@ export default function ResponsiveLayout({ children }: { children: React.ReactNo
     </div>
   );
 }
+
