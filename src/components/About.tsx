@@ -54,39 +54,33 @@ const highlights = [
 
 const milestones = [
   {
-    year: "2021",
-    title: "Started Information Systems",
-    description: "Began studying how people, data, and technology work together to solve organizational problems.",
+    year: "2023",
+    title: "Entered Hawassa University",
+    description: "Began my higher education journey at Hawassa University, diving into the world of technology.",
     icon: GraduationCap,
   },
   {
-    year: "2022",
-    title: "Built Academic Projects",
-    description: "Turned classroom concepts into working systems while learning databases, interfaces, and backend logic.",
-    icon: Layers3,
-  },
-  {
     year: "2024",
-    title: "Software Development Internship",
-    description: "Gained practical experience collaborating on real tasks, improving code quality, and shipping features.",
-    icon: BriefcaseBusiness,
+    title: "Started Information Systems Degree",
+    description: "Started my Information Systems degree, learning how people, data, and technology work together to solve organizational problems.",
+    icon: BookOpenCheck,
   },
   {
     year: "2025",
-    title: "Graduated",
-    description: "Completed Information Systems with a stronger foundation in software, analysis, and problem solving.",
-    icon: Sparkles,
+    title: "Academic & Personal Projects",
+    description: "Worked on academic course projects and personal projects, turning classroom concepts into working software.",
+    icon: Layers3,
   },
   {
     year: "2026",
-    title: "Building Real Software Solutions",
-    description: "Focused on web applications, business systems, and user experiences that feel polished and dependable.",
-    icon: Rocket,
+    title: "Graduated",
+    description: "Graduated with my Information Systems degree, building a strong foundation in software, analysis, and problem solving.",
+    icon: Sparkles,
   },
   {
     year: "Now",
-    title: "Seeking Full-Stack Opportunities",
-    description: "Ready to join a team where clean engineering, thoughtful design, and meaningful impact matter.",
+    title: "Seeking Opportunities & Freelancing",
+    description: "Currently seeking a job and working as a freelancer, ready to contribute clean engineering and meaningful impact.",
     icon: Handshake,
   },
 ];
