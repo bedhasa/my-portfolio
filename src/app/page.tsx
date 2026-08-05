@@ -1,6 +1,6 @@
 import ProfileSection from "@/components/ProfileSection";
 import About from "@/components/About";
-import Skills from "@/components/Skills";
+import TechStack from "@/components/TechStack";
 import Projects from "@/components/Projects";
 import Footer from "@/components/Footer";
 import Testimonials from "@/components/Testimonials";
@@ -19,12 +19,7 @@ export default function Home() {
         <About />
       </section>
 
-      <SectionWrapper delay={0.2}>
-        <section id="services">
-          <Skills />
-        </section>
-      </SectionWrapper>
-
+      <TechStack />
       <SectionWrapper delay={0.3}>
         <section id="projects">
           <Projects />
