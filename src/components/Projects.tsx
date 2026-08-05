@@ -1,94 +1,187 @@
-// components/Projects.tsx
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
+import * as React from "react";
+import { motion } from "framer-motion";
+import { Sparkles } from "lucide-react";
+import { Container } from "@/components/ui/Container";
+import { ProjectCard, type Project } from "@/components/ProjectCard";
+import { fadeUp, viewportOnce } from "@/lib/animations";
 
-const projects = [
+const projects: Project[] = [
   {
-    name: "IoT Inventory System",
-    image: "/images/iot.png",
-    link: "https://your-iot-link.com",
-  },
-  {
-    name: "Ekub Platform",
-    image: "/images/ekub.jpg",
-    link: "https://your-ekub.com",
-  },
-  {
-    name: "E-commerce Site",
+    name: "Campus Maintenance Management System",
+    repo: "https://github.com/bedhasa/campus-maintenance-management-system",
+    status: "Completed",
+    category: "Full-Stack Web Application",
+    summary:
+      "A comprehensive platform for managing campus maintenance requests, tracking work orders, and coordinating facilities teams efficiently.",
     image: "",
-    link: "https://your-ecommerce.com",
+    technologies: ["Laravel", "MySQL", "Tailwind CSS", "Nextjs"],
+    role: "Full-Stack Developer",
+    type: "Academic / Personal Project",
+    details: {
+      overview:
+        "A full-stack web application that digitizes campus maintenance workflows, enabling students and staff to submit requests and track their resolution in real-time.",
+      problem:
+        "Campus maintenance requests were managed through paper forms and informal channels, leading to lost requests, unclear priorities, and slow response times.",
+      solution:
+        "Built a centralized system with role-based dashboards for students, staff, and maintenance teams. Automated ticket assignment, status tracking, and notifications.",
+      keyFeatures: [
+        "Role-based access control (Student, Staff, Admin, Maintenance Team)",
+        "Ticket submission with categories and priority levels",
+        "Real-time status tracking and update history",
+        "Dashboard analytics for maintenance performance",
+        "Email notifications for ticket updates",
+      ],
+      challenges:
+        "Designing a clean role-based permission model and ensuring the ticket lifecycle was intuitive for users with varying technical comfort.",
+      lessonsLearned:
+        "Gained deep experience with Laravel's authentication and authorization systems, and learned the importance of clear user feedback loops in workflow tools.",
+      futureImprovements:
+        "Add mobile push notifications, asset management module, and predictive maintenance analytics.",
+    },
   },
   {
-    name: "Personal Portfolio",
-    image: "/images/portfolio.png",
-    link: "https://your-portfolio.com",
-  },
-  {
-    name: "Student Info Dashboard",
+    name: "Inventory Management System",
+    repo: "https://github.com/bedhasa/inventory-management-system",
+    status: "Completed",
+    category: "Business System",
+    summary:
+      "A robust inventory management solution for tracking stock levels, multiple product categories.",
     image: "",
-    link: "https://your-stud-app.com",
+    technologies: ["PHP", "MySQL", "JavaScript", "Bootstrap"],
+    role: "Full-Stack Developer",
+    type: "Academic / Personal Project",
+    details: {
+      overview:
+        "An inventory management system designed to help small businesses track stock, manage suppliers, and generate actionable reports.",
+      problem:
+        "Businesses struggled with manual stock tracking, leading to overstocking, stockouts, and inaccurate financial reporting.",
+      solution:
+        "Created a system with real-time stock updates, automatic reorder alerts, and comprehensive reporting on inventory value and movement.",
+      keyFeatures: [
+        "Product and category management",
+        "Stock in/out tracking with audit trail",
+        "Low-stock alerts and reorder suggestions",
+        "Inventory valuation and movement reports",
+      ],
+      challenges:
+        "Implementing accurate stock calculations during concurrent transactions and designing a flexible schema for different product types.",
+      lessonsLearned:
+        "Learned the importance of database transactions and locking mechanisms for maintaining data integrity in inventory systems.",
+      futureImprovements:
+        "Add barcode scanning, multi-warehouse support, and integration with e-commerce platforms.",
+    },
+  },
+  {
+    name: "Ekub System",
+    repo: "https://github.com/bedhasa/Ekub-system",
+    status: "Completed",
+    category: "Financial Management System",
+    summary:
+      "A digital platform for managing traditional Ekub savings circles, automating payments, member tracking, and payout scheduling.",
+    image: "",
+    technologies: ["JavaScript", "PHP", "MySQL"],
+    role: "Full-Stack Developer",
+    type: "Academic / Personal Project",
+    details: {
+      overview:
+        "A digital solution for Ekub (traditional rotating savings groups), automating member management, contribution tracking, and payout distribution.",
+      problem:
+        "Traditional Ekub groups relied on manual record-keeping, leading to disputes, missed payments, and lack of transparency.",
+      solution:
+        "Built a platform that automates the entire Ekub cycle — member contributions, rotation order, payouts, and dispute resolution records.",
+      keyFeatures: [
+        "Circle creation and member management",
+        "Automated contribution tracking",
+        "Rotation scheduling and payout calculation",
+        "Payment history and financial reports",
+        "Transparent records for dispute resolution",
+      ],
+      challenges:
+        "Modeling the complex rules of Ekub rotation and ensuring the system handled edge cases like early payouts and member exits fairly.",
+      lessonsLearned:
+        "Gained insight into financial domain modeling and the importance of building trust through transparent, auditable systems.",
+      futureImprovements:
+        "Add mobile money integration, automated reminders, and a mobile-first PWA interface.",
+    },
+  },
+  {
+    name: "EthioSpend",
+    repo: "https://github.com/bedhasa/EthioSpend",
+    status: "In Development",
+    category: "Personal Finance Platform",
+    summary:
+      "A personal finance Mobile app designed to help users track spending, set budgets, and gain insights into their financial habits.",
+    image: "",
+    technologies: ["JAVA"],
+    role: "Full-Stack Developer",
+    type: "Personal Project",
+    details: {
+      overview:
+        "EthioSpend is an in-development personal finance platform focused on expense tracking, budget management, and financial insights for individual users.",
+      problem:
+        "Many people lack simple, accessible tools to understand their spending patterns and build healthier financial habits.",
+      solution:
+        "Designing an intuitive app with smart categorization, budget alerts, and visual analytics to make personal finance approachable.",
+      keyFeatures: [
+        "Expense and income tracking",
+        "Budget creation and alerts",
+        "Visual spending analytics and trends",
+        "Transaction categorization",
+        "Monthly financial reports",
+      ],
+      challenges:
+        "Currently designing a scalable data model for transactions and building real-time budget alerts that don't overwhelm users.",
+      lessonsLearned:
+        "Working on this project is teaching me the importance of thoughtful UX in financial applications and data visualization best practices.",
+      futureImprovements:
+        "Add bank account integration, bill reminders, savings goals, and AI-powered spending insights.",
+    },
   },
 ];
 
 export default function Projects() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-
-  const handleClick = (index: number) => {
-    setActiveIndex(index === activeIndex ? null : index);
-  };
-
   return (
-    <div className="mt-20 space-y-8">
-      <div className="text-center">
-        <h2 className="text-3xl font-bold text-orange-700 dark:text-orange-300">📁 Projects</h2>
-        <p className="text-neutral-800 dark:text-neutral-200 text-lg max-w-2xl mx-auto">
-          Explore some of my recent projects. Click a card to check availability.
-        </p>
-      </div>
+    <section
+      id="projects"
+      aria-labelledby="projects-heading"
+      className="relative overflow-hidden py-section-y"
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10 bg-grid-subtle [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,black,transparent)]"
+      />
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {projects.map((project, i) => (
-          <div
-            key={i}
-            className="bg-white dark:bg-zinc-800 rounded-xl overflow-hidden shadow hover:shadow-xl transition-all duration-300 transform hover:scale-[1.03] border border-orange-300 dark:border-zinc-700"
+      <Container className="relative">
+        <motion.div
+          variants={fadeUp}
+          initial="hidden"
+          whileInView="visible"
+          viewport={viewportOnce}
+          className="mx-auto max-w-3xl text-center"
+        >
+          <p className="mb-3 inline-flex items-center gap-2 rounded-token-full border border-accent/30 bg-accent/10 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-accent">
+            <Sparkles aria-hidden size={14} />
+            Portfolio
+          </p>
+          <h2
+            id="projects-heading"
+            className="font-heading text-4xl font-bold tracking-normal text-neutral-950 dark:text-white sm:text-5xl"
           >
-            <div
-              onClick={() => handleClick(i)}
-              className="cursor-pointer"
-            >
-              <div className="h-48 overflow-hidden relative">
-                {project.image ? (
-                  <Image
-                    src={project.image}
-                    alt={project.name}
-                    fill
-                    className="object-cover w-full h-full transition-transform duration-300 hover:scale-110"
-                  />
-                ) : (
-                  <div className="w-full h-full flex items-center justify-center bg-neutral-100 dark:bg-zinc-700 text-neutral-700 dark:text-neutral-200 text-lg">
-                    coming soon
-                  </div>
-                )}
-              </div>
-              <div className="p-4 text-center">
-                <h3 className="text-xl font-semibold text-orange-700 dark:text-orange-300">
-                  {project.name}
-                </h3>
-              </div>
-            </div>
+            Featured Projects
+          </h2>
+          <p className="mt-4 text-base leading-7 text-muted md:text-lg">
+            Real software solutions built to solve practical business and organizational challenges.
+          </p>
+        </motion.div>
 
-            {activeIndex === i && (
-              <div className="px-4 pb-4 text-center">
-                <p className="text-sm mt-2 text-red-500 font-medium">
-                  ⚠️ Not available now — under editing...
-                </p>
-              </div>
-            )}
-          </div>
-        ))}
-      </div>
-    </div>
+        <div className="mt-16 grid grid-cols-1 gap-8 md:mt-20 lg:grid-cols-2">
+          {projects.map((project, index) => (
+            <ProjectCard key={project.name} project={project} index={index} />
+          ))}
+        </div>
+      </Container>
+    </section>
   );
 }
