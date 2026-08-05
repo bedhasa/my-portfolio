@@ -17,9 +17,7 @@ export default function Footer() {
         <a href="https://t.me/kun_anta7" target="_blank" rel="noopener noreferrer" className="inline-flex h-10 w-10 items-center justify-center rounded-token-full text-accent transition-token hover:bg-accent hover:text-white text-2xl">
           <FaTelegramPlane />
         </a>
-        <a href="https://facebook.com/your-facebook" target="_blank" rel="noopener noreferrer" className="inline-flex h-10 w-10 items-center justify-center rounded-token-full text-accent transition-token hover:bg-accent hover:text-white text-2xl">
-          <FaFacebook />
-        </a>
+       
       </div>
 
       <p className="text-sm">

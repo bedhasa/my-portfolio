@@ -2,6 +2,7 @@ import ProfileSection from "@/components/ProfileSection";
 import About from "@/components/About";
 import TechStack from "@/components/TechStack";
 import Projects from "@/components/Projects";
+import Services from "@/components/Services";
 import Footer from "@/components/Footer";
 import Testimonials from "@/components/Testimonials";
 import SectionWrapper from "@/components/SectionWrapper";
@@ -20,6 +21,7 @@ export default function Home() {
       </section>
 
       <TechStack />
+      <Services />
       <SectionWrapper delay={0.3}>
         <section id="projects">
           <Projects />

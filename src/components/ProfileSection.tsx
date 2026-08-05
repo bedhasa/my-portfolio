@@ -169,7 +169,7 @@ export default function ProfileSection() {
               href="#projects"
               whileHover={shouldReduceMotion ? undefined : { scale: 1.03 }}
               whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
-              className={`${heroButtonClass} bg-neutral-950 text-white shadow-glow hover:bg-accent dark:bg-accent dark:hover:bg-accent-strong`}
+className={`${heroButtonClass} bg-neutral-950 text-white shadow-glow hover:bg-accent hover:shadow-[0_0_36px_rgb(255_122_0_/_0.55)] dark:bg-accent dark:hover:bg-accent-strong`}
             >
               <BriefcaseBusiness aria-hidden size={18} />
               View My Work
@@ -178,7 +178,7 @@ export default function ProfileSection() {
               href="#contact"
               whileHover={shouldReduceMotion ? undefined : { scale: 1.03 }}
               whileTap={shouldReduceMotion ? undefined : { scale: 0.98 }}
-              className={`${heroButtonClass} border border-border/70 bg-transparent text-foreground hover:border-accent hover:bg-accent hover:text-white hover:shadow-glow`}
+className={`${heroButtonClass} border border-border/70 bg-transparent text-foreground hover:border-accent hover:bg-accent hover:text-white hover:shadow-[0_0_36px_rgb(255_122_0_/_0.55)]`}
             >
               <Mail aria-hidden size={18} />
               Contact Me

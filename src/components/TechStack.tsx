@@ -281,12 +281,12 @@ export default function TechStack() {
           <h3 className="font-heading text-2xl font-semibold text-neutral-950 dark:text-white sm:text-3xl">
             Interested in working together?
           </h3>
-          <a
+<a
             href="#projects"
-            className="mt-7 inline-flex h-12 items-center justify-center gap-2 rounded-token-full bg-neutral-950 px-6 text-sm font-semibold text-white shadow-glow transition-token hover:-translate-y-0.5 hover:bg-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:bg-accent dark:hover:bg-accent-strong"
+            className="mt-7 inline-flex h-12 items-center justify-center gap-2 rounded-token-full bg-neutral-950 px-6 text-sm font-semibold text-white shadow-glow transition-token hover:-translate-y-0.5 hover:bg-accent hover:shadow-[0_0_36px_rgb(255_122_0_/_0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-background dark:bg-accent dark:hover:bg-accent-strong"
           >
             Explore My Projects
-            <ArrowRight aria-hidden size={16} />
+            <ArrowRight aria-hidden size={16} className="transition-transform duration-300 group-hover:translate-x-0.5" />
           </a>
         </motion.div>
       </Container>
